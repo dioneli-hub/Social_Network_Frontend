@@ -1,0 +1,18 @@
+.comment-card {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+}
+
+.comment-card p{
+    margin: 15px;
+}
+
+.delete-button {
+    width: 10%;
+    position:absolute;
+    vertical-align: top;
+    align-self: flex-end;
+    margin-top: 7px;
+    margin-right: 7px;
+}
