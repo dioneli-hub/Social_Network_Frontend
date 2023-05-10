@@ -1,0 +1,36 @@
+.body {
+    margin-top: 50px;
+    margin-left: 40px;
+
+    height: 400px;
+    width: 300px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.avatar img {
+    border-radius: 50%;
+    height: 200px;
+    position: relative;
+    top: -30px;
+    left: 5px;
+}
+
+
+.card-wrapper {
+    margin-top: 30px;
+}
+
+.images {
+    display: flex;
+    height: max-content;
+    position: inherit;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.follow-button {
+    margin: 5px;
+    width: 40%;
+}
+
