@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -10,6 +11,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { SmallUserIconComponent } from './small-user-icon/small-user-icon.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { RegistrationComponent } from './registration/registration.component';
   ],
   imports: [
     BrowserModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
