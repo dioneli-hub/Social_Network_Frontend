@@ -1,56 +1,62 @@
+.login-container {
+  margin-left: 33%;
+  margin-top: 50px;
+}
+
 /* Styles for single column container */
 .col-4 {
-  padding: 2rem;
-  background-color: #f8f9fa;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-}
-
-/* Styles for "Log In to account" header */
-.col-4 h3 {
-  font-size: 2rem;
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-/* Styles for the form */
-.form-label {
-  font-weight: bold;
-}
-
-.form-control {
-  border-radius: 0;
-  border: 1px solid #ccc;
-  box-shadow: none;
-  padding: 0.5rem;
-}
-
-.form-control:focus {
-  border-color: #6c757d;
-  box-shadow: none;
-}
-
-/* Styles for the "Log In" button */
-.btn-outline-primary {
-  border-radius: 0;
-  border-color: #007bff;
-  color: #007bff;
-  font-weight: bold;
-  padding: 0.5rem; 1rem;
-  margin-top: 1rem;
-}
-
-.btn-outline-primary:hover {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Styles for error message */
-.alert-danger {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  color: #721c24;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 0.25rem;
-}
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+  
+  /* Styles for "Log In to account" header */
+  .col-4 h3 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  
+  /* Styles for the form */
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-radius: 0;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    padding: 0.5rem;
+  }
+  
+  .form-control:focus {
+    border-color: #6c757d;
+    box-shadow: none;
+  }
+  
+  /* Styles for the "Log In" button */
+  .btn-outline-primary {
+    border-radius: 0;
+    border-color: #007bff;
+    color: #007bff;
+    font-weight: bold;
+    padding: 0.5rem; /*1rem;*/
+    margin-top: 1rem;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Styles for error message */
+  .alert-danger {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.25rem;
+  }
+  
