@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+1
+import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -8,6 +9,15 @@ import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { SmallUserIconComponent } from './small-user-icon/small-user-icon.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+const routes: Routes = [
+      { path: '', component: ProfileComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegistrationComponent },
+      { path: 'profile/:id', component: ProfileComponent }
+    ]
 
 @NgModule({
   declarations: [
@@ -17,10 +27,13 @@ import { SmallUserIconComponent } from './small-user-icon/small-user-icon.compon
     PostComponent,
     CommentComponent,
     UserInfoComponent,
-    SmallUserIconComponent
+    SmallUserIconComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
