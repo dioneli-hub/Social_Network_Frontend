@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {AuthInterceptor} from "../interceptors/auth.interceptor";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const AUTH_INTERCEPTOR = {
   provide: HTTP_INTERCEPTORS,
@@ -41,9 +42,11 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AUTH_INTERCEPTOR],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
