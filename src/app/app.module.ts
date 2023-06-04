@@ -11,6 +11,14 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { SmallUserIconComponent } from './small-user-icon/small-user-icon.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import {AuthInterceptor} from "../interceptors/auth.interceptor";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+
+const AUTH_INTERCEPTOR = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+};
 
 const routes: Routes = [
       { path: '', component: ProfileComponent },
