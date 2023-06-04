@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+1
+import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -12,6 +12,12 @@ import { SmallUserIconComponent } from './small-user-icon/small-user-icon.compon
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
+const routes: Routes = [
+      { path: '', component: ProfileComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegistrationComponent },
+      { path: 'profile/:id', component: ProfileComponent }
+    ]
 
 @NgModule({
   declarations: [
@@ -26,8 +32,8 @@ import { RegistrationComponent } from './registration/registration.component';
     RegistrationComponent
   ],
   imports: [
-    BrowserModule
-    AppRoutingModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
