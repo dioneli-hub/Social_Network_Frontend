@@ -80,4 +80,6 @@
       border-radius: 0.25rem;
     }
     
-  
+  .registration-message-container{
+    text-align: center;
+  }

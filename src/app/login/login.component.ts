@@ -29,7 +29,7 @@ export class LoginComponent {
   }
 
   authenticate(email: string, password: string) {
-    this.error = '';
+     this.error = '';
     this.authService
       .auth(email, password)
       .subscribe((res) => {
@@ -37,7 +37,9 @@ export class LoginComponent {
           console.log("authenticated")
           this.router.navigate(['/']).then();
         }
-      }, //err => this.error = err.error.error
+      }, err => {
+        this.error = err.name
+      }
       )
   }
 }

@@ -8,7 +8,7 @@
       </button>
       <div class="collapse navbar-collapse" id="logging">
         <form class="d-flex">
-          <button class="btn btn-outline-success" type="submit">Log Out</button>
+          <button *ngIf="isAuthenticated" class="btn btn-outline-success" type="submit" (click)="logout()">Log Out</button>
         </form>
       </div>
     </div>
