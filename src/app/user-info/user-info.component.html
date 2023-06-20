@@ -3,8 +3,8 @@
   <div class="user-info-person" *ngIf="currentUser?.id === user?.id">
     <label for="avatarUpload" class="form-label">
 
-      <img src='https://www.jquery-az.com/html/images/banana.jpg'>
-      <!-- <img [src]="user.avatar | secureImage | async" alt="Person" /> -->
+      <!-- <img src='https://www.jquery-az.com/html/images/banana.jpg'> -->
+      <img [src]="user.avatar | secureImage | async" alt="Person" />
     </label>
     <div class="d-none">
       <input class="form-control" type="file" id="avatarUpload" #upload (change)="uploadAvatar(upload)">
@@ -12,8 +12,8 @@
   </div>
   <div class="user-info-person" *ngIf="currentUser?.id !== user?.id">
 
-    <img src='https://www.jquery-az.com/html/images/banana.jpg'>
-    <!-- <img [src]="user.avatar | secureImage | async" alt="Person" /> -->
+    <!-- <img src='https://www.jquery-az.com/html/images/banana.jpg'> -->
+    <img [src]="user.avatar | secureImage | async" alt="Person" />
   </div>
   <div class="user-info">
     <h4 class="text-primary mb-0">{{user.firstName}} {{user.lastName}}</h4>

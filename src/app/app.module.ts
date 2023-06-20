@@ -14,6 +14,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import {AuthInterceptor} from "../interceptors/auth.interceptor";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SecureImagePipe } from 'src/security/secureImage.pipe';
 
 const AUTH_INTERCEPTOR = {
   provide: HTTP_INTERCEPTORS,
@@ -38,7 +39,8 @@ const routes: Routes = [
     UserInfoComponent,
     SmallUserIconComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SecureImagePipe
   ],
   imports: [
     BrowserModule,
