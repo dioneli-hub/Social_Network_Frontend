@@ -1,4 +1,67 @@
-<div class="row">
+<div class="row profile-wrapper" *ngIf="user && currentUser">
+  <div class="col-3">
+    <app-user-info
+      [user]="user"
+      [currentUser]="currentUser"
+      [hasCurrentFollow]="hasCurrentFollow"
+      (followChange)="onFollowChange()"
+    ></app-user-info>
+  </div>
+  <div class="col-6">
+    <div class="mb-3" *ngIf="user.id === currentUser.id">
+      <h2>Hello, {{user.firstName}} {{user.lastName}}!</h2>
+      <textarea class="form-control" rows="2" placeholder="What's new?" [(ngModel)]="postText"></textarea>
+      <div class="d-flex justify-content-end">
+        <button type="button"
+                class="btn btn-outline-primary mt-1"
+                [disabled]="!postText"
+                (click)="createPost()"
+        >
+          <i class="bi bi-send"></i>
+          Publish
+        </button>
+      </div>
+    </div>
+    <h3>{{userId ? 'Posts' : 'News'}}</h3>
+    <ng-template [ngIf]="posts && posts.length > 0" [ngIfElse]="noPosts">
+      <app-post *ngFor="let post of posts"
+                [post]="post"
+                [currentUser]="currentUser"
+                (removePost)="onRemovePost($event)"
+      ></app-post>
+    </ng-template>
+    <ng-template #noPosts>
+      <div class="alert alert-info" role="alert">
+        No posts.
+      </div>
+    </ng-template>
+
+  </div>
+  <div class="col-3">
+    <ng-template [ngIf]="users && users.length > 0">
+      <h4>Network Users:</h4>
+      <div class="d-flex flex-wrap">
+        <div class="p-1" *ngFor="let user of users">
+           <app-small-user-icon [user]="user"></app-small-user-icon> 
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row" *ngIf="user && currentUser">
     <div class="col-3">
       <app-user-info></app-user-info>
     </div>
@@ -19,5 +82,5 @@
     <div class="col-3">
         
     </div>
-  </div>
+  </div> -->
   

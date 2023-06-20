@@ -1,4 +1,79 @@
-<div class="card post-card border-warning">
+<ng-template [ngIf]="post">
+    <div class="card mb-2 shadow">
+      <div class="card-body">
+        <div class="d-flex flex-row">
+          <div class="">
+            <!-- <img [src]="post.author.avatar | secureImage | async" width="48" alt="Person" class="rounded-circle" /> -->
+          </div>
+          <div class="ms-1">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title mb-0">
+                <a href="#" class="user-name" [routerLink]="['/profile', post.author.id]">{{post.author.firstName}} {{post.author.lastName}}</a>
+              </h5>
+              <button type="button" *ngIf="currentUser && currentUser.id === post.author.id"
+                      class="btn btn-light btn-sm bg-white border-0"
+                      (click)="remove(post)"
+              >
+                <i class="bi bi-trash-fill text-danger"></i>
+              </button>
+            </div>
+            <div class="mb-2 time">
+              <small class="card-subtitle text-muted" >{{post.createdAt | date:'medium'}}</small>
+            </div>
+          </div>
+        </div>
+  
+  
+        <p class="card-text">{{post.text}}</p>
+        <button type="button"
+                class="btn btn-light position-relative"
+                (click)="like(post)"
+        >
+          <i class="bi text-danger"
+             [class.bi-heart]="!isLiked(post)"
+             [class.bi-heart-fill]="isLiked(post)"
+          ></i>
+          {{post.totalLikes}}
+        </button>
+        <button type="button"
+                class="btn btn-light position-relative ms-2"
+                (click)="showComments(post)"
+        >
+          <i class="bi bi-chat-left-text text-primary"></i>
+          {{post.totalComments}}
+        </button>
+        <h6 class="text-muted mt-1">Comments</h6>
+        <div class="ps-2">
+          <ng-template [ngIf]="post.showComments">
+            <app-comment *ngFor="let comment of post.comments"
+                         [comment]="comment"
+                         [currentUser]="currentUser"
+                         (removeComment)="onRemoveComment(post, $event)"
+            ></app-comment>
+          </ng-template>
+          <textarea class="form-control" rows="1"
+                    placeholder="What do you think about it?"
+                    [(ngModel)]="post.comment"
+          ></textarea>
+          <div class="d-flex justify-content-end">
+            <button type="button"
+                    [disabled]="!post.comment"
+                    class="btn btn-outline-primary mt-1"
+                    (click)="addComment(post)"
+            >
+              <i class="bi bi-send"></i> Publish
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  
+
+
+
+
+<!-- <div class="card post-card border-warning">
     <h6>Hi, how are you?</h6>
 
     
@@ -17,4 +92,4 @@
     
 
     <button class="btn btn-dark like-button"><i class="fa fa-moon-o"></i> | 122</button>
-</div>
+</div> -->

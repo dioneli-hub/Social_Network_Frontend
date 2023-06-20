@@ -1,4 +1,6 @@
-.body {
+/*old*/
+
+/* .body {
     margin-top: 50px;
     margin-left: 40px;
 
@@ -21,6 +23,8 @@
     margin-top: 30px;
 }
 
+
+
 .images {
     display: flex;
     height: max-content;
@@ -32,5 +36,37 @@
 .follow-button {
     margin: 5px;
     width: 40%;
-}
+} */
+/*old*/
+
+.user-info-background img {
+    width: 100%;
+  }
+  
+  .user-info-person {
+    position: relative;
+    height: 280px;
+    width: 220px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .user-info-person img:hover {
+    cursor: pointer;
+  }
+  
+  .user-info-person img {
+    border-radius: 10%;
+    height: 200px;
+    position: absolute;
+    left: 60px;
+    top: -10px;
+  }
+  
+  .user-info {
+    text-align: center;
+    margin-top: -70px;
+    margin-left: 5px;
+  }
+  
 

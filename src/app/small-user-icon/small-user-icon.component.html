@@ -1,4 +1,18 @@
 <div class="card small-user-card">
+<a href="#" *ngIf="user"
+   class="d-flex flex-column align-items-center p-1"
+   [routerLink]="['/profile', user.id]"
+>
+<img src='https://www.jquery-az.com/html/images/banana.jpg'>
+  <!-- <img [src]="user.avatar | secureImage | async" height="40" alt="Person" class="rounded-circle"> -->
+  <small>{{user.firstName}} {{user.lastName}}</small>
+</a>
+</div>
+
+
+<!-- <div class="card small-user-card">
     <img src='https://www.jquery-az.com/html/images/banana.jpg'>
     <small>Fiona Marx</small>
-</div>
+</div> -->
+
+

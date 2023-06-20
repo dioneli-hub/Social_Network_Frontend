@@ -1,29 +1,118 @@
-<div class="body">
+<div class="d-flex flex-column body " *ngIf="user">
+
+  <div class="user-info-person" *ngIf="currentUser?.id === user?.id">
+    <label for="avatarUpload" class="form-label">
+
+      <img src='https://www.jquery-az.com/html/images/banana.jpg'>
+      <!-- <img [src]="user.avatar | secureImage | async" alt="Person" /> -->
+    </label>
+    <div class="d-none">
+      <input class="form-control" type="file" id="avatarUpload" #upload (change)="uploadAvatar(upload)">
+    </div>
+  </div>
+  <div class="user-info-person" *ngIf="currentUser?.id !== user?.id">
+
+    <img src='https://www.jquery-az.com/html/images/banana.jpg'>
+    <!-- <img [src]="user.avatar | secureImage | async" alt="Person" /> -->
+  </div>
+  <div class="user-info">
+    <h4 class="text-primary mb-0">{{user.firstName}} {{user.lastName}}</h4>
+    <small class="text-muted">{{user.email}}</small>
+  </div>
+  <button *ngIf="currentUser?.id !== user?.id"
+          class="w-100 btn btn-outline-primary mt-2"
+          (mouseover)="onMouseOverFollow($event)"
+          (mouseout)="onMouseOverFollow($event)"
+          (click)="changeFollow()"
+  >
+    <i class="bi" [ngClass]="followClass"></i>
+    {{followLabel}}
+  </button>
+
+  <div class="card mt-2 shadow">
+    <div class="card-body">
+      <h5 class="card-title">Followers</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{user.totalFollowers}} follower(s)</h6>
+      <div class="d-flex flex-wrap">
+        <div class="p-1" *ngFor="let follower of followers">
+          <app-small-user-icon [user]="follower"></app-small-user-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-2 shadow">
+    <div class="card-body">
+      <h5 class="card-title">Follows To</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Follows to {{user.totalFollowsTo}} user(s)</h6>
+      <div class="d-flex flex-wrap">
+        <div class="p-1" *ngFor="let followTo of followsTo">
+          <app-small-user-icon [user]="followTo"></app-small-user-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="body" *ngIf="user">
+
+
     <div class="avatar">
         <img src='https://www.jquery-az.com/html/images/banana.jpg'>
     </div>
     <div class="user-info">
-        <h4>John Wick</h4>
-        <small class="text-muted">Jardani68@gmail.by</small>
+        <h4>{{user.firstName}} {{user.lastName}}</h4>
+        <small class="text-muted">{{user.email}}</small>
     </div>
 
+    <button *ngIf="currentUser?.id !== user?.id"
+    class="w-100 btn btn-outline-primary mt-2"
+    (mouseover)="onMouseOverFollow($event)"
+    (mouseout)="onMouseOverFollow($event)"
+    (click)="changeFollow()"
+>
+  <i class="bi" [ngClass]="followClass"></i>
+{{followLabel}}
+</button>
+ 
     <div class="follow-buttons-group">
       <button class="btn btn-primary follow-button">Follow</button>
       <button class="btn btn-primary follow-button">Unfollow</button>
-    </div>
+    </div> 
 
     <div class="card-wrapper">
         <div class="card followers border-warning">
             <div class="card-body">
               <h6>Followers</h6>
-                <!--WILL BE A SEPARATE COMPONENT LATER-->
-              <div class="images">
-                <app-small-user-icon></app-small-user-icon>
-                <app-small-user-icon></app-small-user-icon>
-                <app-small-user-icon></app-small-user-icon>
-                <app-small-user-icon></app-small-user-icon>
-                <app-small-user-icon></app-small-user-icon>
-                <app-small-user-icon></app-small-user-icon>
+                WILL BE A SEPARATE COMPONENT LATER-->
+              <!-- <div class="images">
+                <div class="p-1" *ngFor="let follower of followers">
+                   <app-small-user-icon [user]="follower"></app-small-user-icon> 
+                </div>
                 
 
               </div>
@@ -35,9 +124,11 @@
             <div class="card-body">
                 <h6>Follows</h6>
                 <div class="images">
-
+                  <div class="p-1" *ngFor="let followTo of followsTo">
+                    <app-small-user-icon [user]="followTo"></app-small-user-icon>
+                  </div>
                 </div>
             </div>
           </div>
     </div>
-</div>
+</div> --> 

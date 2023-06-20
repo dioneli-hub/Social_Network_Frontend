@@ -56,19 +56,19 @@
     }
     
     /* Styles for the "Registration" button */
-    .btn-outline-primary {
+    /* .btn-outline-primary {
       border-radius: 0;
       border-color: #007bff;
       color: #007bff;
       font-weight: bold;
-      padding: 0.5rem; /*1rem;*/
+      padding: 0.5rem; /*1rem;
       margin-top: 1rem;
-    }
+    } */
     
-    .btn-outline-primary:hover {
+    /* .btn-outline-primary:hover {
       background-color: #007bff;
       color: #fff;
-    }
+    } */
     
     /* Styles for error message */
     .alert-danger {

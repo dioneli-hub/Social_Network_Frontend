@@ -24,7 +24,7 @@
         <input type="password" class="form-control" id="password" [(ngModel)]="new_password" required >
       </div>
       
-      <button type="button" class="btn btn-outline-primary"
+      <button type="button" class="btn btn-primary"
               (click)="createAccount()"
         [disabled]="!new_email || !new_password || !first_name || !last_name">
 

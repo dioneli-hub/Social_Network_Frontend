@@ -2,4 +2,10 @@
     position: absolute;
     right: 30px;
     top: 5px;
+    
+}
+
+.btn-light {
+    color:grey;
+    
 }

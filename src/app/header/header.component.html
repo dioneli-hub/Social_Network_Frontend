@@ -1,14 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar bg-primary navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand text-white" href="#">
         AVI
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="logging">
+      
+      <div id="logging">
         <form class="d-flex">
-          <button *ngIf="isAuthenticated" class="btn btn-outline-success" type="submit" (click)="logout()">Log Out</button>
+          <button *ngIf="isAuthenticated" class="mt-1 btn btn-light" type="submit" (click)="logout()">Log Out</button>
         </form>
       </div>
     </div>

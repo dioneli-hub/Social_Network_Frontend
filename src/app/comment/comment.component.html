@@ -1,6 +1,37 @@
-<div class="card comment-card">
+<ng-template [ngIf]="comment">
+    <div class="mb-2 shadow p-3 rounded-3">
+      <div class="d-flex flex-row">
+        <div class="">
+          <!-- <img [src]="comment.author.avatar | secureImage | async" width="36" alt="Person" class="rounded-circle" /> -->
+        </div>
+        <div class="ms-1">
+          <div class="d-flex flex-row justify-content-between">
+            <h6 class="card-title">
+              <a href="#" class="user-name" [routerLink]="['/profile', comment.author.id]">{{comment.author.firstName}} {{comment.author.lastName}}</a>
+            </h6>
+          </div>
+          <div class="time">
+            <small class="card-subtitle text-muted" >{{comment.createdAt | date:'medium'}}</small>
+          </div>
+          <p class="card-text mt-0">
+            {{comment.text}}
+            <button type="button" *ngIf="currentUser && comment.author.id === currentUser.id"
+                    class="btn btn-light btn-sm bg-white border-0"
+                    (click)="remove(comment)"
+            >
+              <i class="bi bi-trash-fill text-danger"></i>
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  
+
+
+<!-- <div class="card comment-card">
     <p class="text-muted">Fiiiine! :D</p>
     <button class="btn btn-outline-danger delete-button">
         <i class="fa fa-trash"></i>
     </button>
-</div>
+</div> -->

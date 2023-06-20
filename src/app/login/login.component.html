@@ -14,7 +14,7 @@
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" [(ngModel)]="password" required >
       </div>
-      <button type="button" class="btn btn-outline-primary" (click)="auth()" [disabled]="!email || !password">
+      <button type="button" class="btn btn-primary" (click)="auth()" [disabled]="!email || !password">
         <i class="bi bi-door-open-fill"></i> Log In
       </button>
       <div class="login-message-container">
