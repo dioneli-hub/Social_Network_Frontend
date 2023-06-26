@@ -6,7 +6,6 @@ import {tap} from "rxjs/operators";
 import {PostModel} from "../api-models/post.model";
 import {UserProvider} from "../providers/user.provider";
 import {environment} from "../environments/environment";
-import { ServiceResponse } from "src/api-models/service-response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -62,12 +61,18 @@ export class UsersService {
     return this.httpClient.get<boolean>(`${environment.apiUrl}users/${userId}/follow-to/${followToUserId}`);
   }
 
-  follow(userId: number, followTo: number): Observable<void> {
-    return this.httpClient.post<void>(`${environment.apiUrl}users/${userId}/follow-to/${followTo}`, {});
+  follow(userId: number, followTo: number) {
+    console.log('uId: ' + userId + ', FiD: ' +followTo)
+    return this.httpClient.post(`${environment.apiUrl}users/${userId}/follow-to/${followTo}`,
+     {},
+     {responseType: 'text'}
+    );
   }
 
-  unfollow(userId: number, followTo: number): Observable<void> {
-    return this.httpClient.delete<void>(`${environment.apiUrl}users/${userId}/follow-to/${followTo}`);
+  unfollow(userId: number, followTo: number) {
+    console.log('uId: ' + userId + ', FiD: ' +followTo)
+    return this.httpClient.delete(`${environment.apiUrl}users/${userId}/follow-to/${followTo}`,
+    {responseType: 'text'});
   }
 
   uploadAvatar(file: File): Observable<ApplicationFileModel> {

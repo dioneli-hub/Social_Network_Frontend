@@ -8,6 +8,10 @@ import { UsersService } from 'src/services/users.service';
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.css']
 })
+
+
+
+
 export class UserInfoComponent implements OnInit, OnDestroy, OnChanges {
   private destroy$ = new Subject<void>();
   private usersLimit = 6;
@@ -28,23 +32,31 @@ export class UserInfoComponent implements OnInit, OnDestroy, OnChanges {
   followsTo: Array<SimpleUserModel> = [];
   mouseOver = false;
 
+  totalFollowers: any;
+  totalFollows: any;
+
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes?.['user']?.currentValue || this.user)
     const user = changes?.['user']?.currentValue || this.user;
     if (user) {
       this.userService
         .getFollowers(user.id, this.usersLimit)
         .pipe(takeUntil(this.destroy$))
-        .subscribe(followers => this.followers = followers);
+        .subscribe(followers => {
+          this.followers = followers;
+          this.totalFollowers = this.followers.length
+        });
       this.userService
         .getFollowsTo(user.id, this.usersLimit)
         .pipe(takeUntil(this.destroy$))
-        .subscribe(followTo => this.followsTo = followTo);
+        .subscribe(followTo => {
+          this.followsTo = followTo;
+          this.totalFollows = this.followsTo.length;
+        });
     }
   }
 
