@@ -40,7 +40,8 @@ const routes: Routes = [
     SmallUserIconComponent,
     LoginComponent,
     RegistrationComponent,
-    SecureImagePipe
+    SecureImagePipe,
+    
   ],
   imports: [
     BrowserModule,

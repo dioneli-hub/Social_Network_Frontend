@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit{
   first_name = '';
   last_name = '';
 
-  error = '';
+  errorMessage = '';
 
   constructor(private authService: AuthService,
     private usersService: UsersService,
@@ -31,26 +31,35 @@ export class RegistrationComponent implements OnInit{
   }
 
   authenticate(email: string, password: string) {
-    this.error = '';
+    this.errorMessage = '';
+
     this.authService
       .auth(email, password)
       .subscribe((res) => {
         if (res) {
           this.router.navigate(['/']).then();
         }
-      }, err => this.error = err.name)
+      }, //err => this.error = err.name
       
-  }
+  )}
 
   createAccount() {
-    this.error = '';
+    this.errorMessage = '';
+    
     this.usersService
       .create(this.first_name, this.last_name, this.new_email, this.new_password)
-        .subscribe((user) => {
-          if (user) {
-            this.authenticate(this.new_email, this.new_password);
-          }
-      }, err => this.error = err.name
-      )
+        .subscribe
+        ({
+            next:(res: any) => {
+              console.log(res)
+              if(res.isSuccess == true){
+                this.authenticate(this.new_email, this.new_password);
+              } else {
+                this.errorMessage = res.message
+              }
+          },
+            error: error => console.log(error)
+        });
+          
   }
 }

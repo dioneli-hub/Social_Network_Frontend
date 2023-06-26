@@ -12,7 +12,7 @@ export class LoginComponent {
   email = '';
   password = '';
 
-  error = '';
+  errorMessage = '';
 
   constructor(private authService: AuthService,
               private usersService: UsersService,
@@ -29,17 +29,19 @@ export class LoginComponent {
   }
 
   authenticate(email: string, password: string) {
-     this.error = '';
+    this.errorMessage = '';
     this.authService
       .auth(email, password)
-      .subscribe((res) => {
-        if (res) {
-          console.log("authenticated")
-          this.router.navigate(['/']).then();
-        }
-      }, err => {
-        this.error = err.name
-      }
-      )
+      .subscribe
+        ({
+            next:(res: any) => {
+              if(res.isSuccess == true){
+                this.router.navigate(['/']).then();
+              } else {
+                this.errorMessage = res.message
+              }
+          },
+            error: error => console.log(error)
+        });
   }
 }

@@ -6,6 +6,7 @@ import {tap} from "rxjs/operators";
 import {PostModel} from "../api-models/post.model";
 import {UserProvider} from "../providers/user.provider";
 import {environment} from "../environments/environment";
+import { ServiceResponse } from "src/api-models/service-response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class UsersService {
   }
 
   create(firstName: string, lastName: string, email: string, password: string) {
+
     return this.httpClient.post<SimpleUserModel>(`${environment.apiUrl}users/`, {
       firstName,
       lastName,

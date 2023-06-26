@@ -34,6 +34,7 @@ export class UserInfoComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes?.['user']?.currentValue || this.user)
     const user = changes?.['user']?.currentValue || this.user;
     if (user) {
       this.userService

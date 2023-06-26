@@ -5,6 +5,7 @@ import {Observable, of} from "rxjs";
 import {switchMap, tap} from "rxjs/operators";
 import {UserProvider} from "../providers/user.provider";
 import {environment} from "../environments/environment";
+import { ServiceResponse } from "src/api-models/service-response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +29,13 @@ export class AuthService {
     localStorage.removeItem('token-exp');
   }
 
-  auth(email: string, password: string): Observable<boolean> {
+  auth(email: string, password: string)  {
     return this.httpClient
-      .post<TokenModel>(`${environment.apiUrl}auth/`, { email, password })
+      .post(`${environment.apiUrl}auth/`, { email, password })
       .pipe(
-        tap(token => AuthService.setToken(token)),
-        switchMap(token => of(this.isAuthenticated())),
+        tap((tokenResponse: any) => {
+          AuthService.setToken(tokenResponse.data)}),
+          //switchMap(token => of(this.isAuthenticated())),
       );
   }
 
