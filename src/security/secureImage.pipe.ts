@@ -12,7 +12,7 @@ export class SecureImagePipe implements PipeTransform{
   }
 
   async transform(file: ApplicationFileModel | null): Promise<string> {
-    console.log(file)
+    // console.log(file)
     if (!file || !this.isImage(file)) {
       return new Promise(resolve => {
         resolve('/assets/person.jpg');

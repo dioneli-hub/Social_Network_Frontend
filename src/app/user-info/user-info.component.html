@@ -32,7 +32,7 @@
   <div class="card mt-2 shadow">
     <div class="card-body">
       <h5 class="card-title">Followers</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{user.totalFollowers || totalFollowers}} follower(s)</h6>
+      <h6 class="card-subtitle mb-2 text-muted">{{ totalFollowers}} follower(s)</h6>
       <div class="d-flex flex-wrap">
         <div class="p-1" *ngFor="let follower of followers">
           <app-small-user-icon [user]="follower"></app-small-user-icon>
@@ -43,7 +43,7 @@
   <div class="card mt-2 shadow">
     <div class="card-body">
       <h5 class="card-title">Follows</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Follows {{user.totalFollowsTo|| totalFollows }} user(s)</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Follows {{ totalFollows }} user(s)</h6>
       <div class="d-flex flex-wrap">
         <div class="p-1" *ngFor="let followTo of followsTo">
           <app-small-user-icon [user]="followTo"></app-small-user-icon>

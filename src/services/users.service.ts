@@ -62,7 +62,6 @@ export class UsersService {
   }
 
   follow(userId: number, followTo: number) {
-    console.log('uId: ' + userId + ', FiD: ' +followTo)
     return this.httpClient.post(`${environment.apiUrl}users/${userId}/follow-to/${followTo}`,
      {},
      {responseType: 'text'}
@@ -70,7 +69,6 @@ export class UsersService {
   }
 
   unfollow(userId: number, followTo: number) {
-    console.log('uId: ' + userId + ', FiD: ' +followTo)
     return this.httpClient.delete(`${environment.apiUrl}users/${userId}/follow-to/${followTo}`,
     {responseType: 'text'});
   }
